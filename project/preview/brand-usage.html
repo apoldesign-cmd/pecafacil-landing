@@ -1,0 +1,30 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>body{background:#F7F9FC}
+.guide{display:flex;gap:14px;flex-wrap:wrap}
+.g{background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px 15px;width:212px;box-shadow:var(--shadow-sm)}
+.g .h{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;margin-bottom:8px}
+.g.do .h{color:var(--success)}.g.dont .h{color:var(--danger)}
+.g ul{margin:0;padding-left:16px;font-size:12px;color:var(--text-2);line-height:1.55}
+.tick{width:16px;height:16px}
+</style></head>
+<body>
+<div class="guide">
+  <div class="g do">
+    <div class="h"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Faça</div>
+    <ul>
+      <li>Engrenagem como marca / favicon / loading</li>
+      <li>Faixas em bordas, divisores, item ativo</li>
+      <li>Verde sempre lidera (esq./topo)</li>
+      <li>Faixas finas e confiantes (3–6px)</li>
+    </ul>
+  </div>
+  <div class="g dont">
+    <div class="h"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>Não faça</div>
+    <ul>
+      <li>Engrenagem como ícone de "ajustes"</li>
+      <li>Faixas em gradiente ou inclinadas</li>
+      <li>Inverter ordem (amarelo antes do verde)</li>
+      <li>Faixas largas competindo com o conteúdo</li>
+    </ul>
+  </div>
+</div>
+</body></html>

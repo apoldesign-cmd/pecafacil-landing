@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PeçaFácil — App UI Kit</title>
+<link rel="stylesheet" href="app.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="data.jsx"></script>
+<script type="text/babel" src="primitives.jsx"></script>
+<script type="text/babel" src="ScreenLogin.jsx"></script>
+<script type="text/babel" src="ScreenDashboard.jsx"></script>
+<script type="text/babel" src="ScreenScan.jsx"></script>
+<script type="text/babel" src="ScreenCatalog.jsx"></script>
+<script type="text/babel" src="ScreenPartDetail.jsx"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+function StatusBar() {
+  return (
+    <div className="statusbar">
+      <span>9:41</span>
+      <span className="ico">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="6" width="3" height="5" rx="1"/><rect x="4.5" y="3.5" width="3" height="7.5" rx="1"/><rect x="9" y="1.5" width="3" height="9.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="22" height="11" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="19" height="10" rx="3" stroke="currentColor" strokeWidth="1.2" opacity=".5"/><rect x="2.5" y="2.5" width="14" height="7" rx="1.5" fill="currentColor"/><rect x="21" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg>
+      </span>
+    </div>
+  );
+}
+
+function App() {
+  const [authed, setAuthed] = useState(false);
+  const [tab, setTab] = useState('home');      // home | catalog | sales
+  const [overlay, setOverlay] = useState(null); // 'scan' | {part}
+  const [part, setPart] = useState(null);
+
+  const openPart = (p) => { setPart(p); setOverlay('part'); };
+
+  let body;
+  if (!authed) {
+    body = <ScreenLogin onLogin={() => setAuthed(true)} />;
+  } else if (overlay === 'scan') {
+    body = <ScreenScan onBack={() => setOverlay(null)} onDone={() => { setOverlay(null); setTab('catalog'); }} />;
+  } else if (overlay === 'part') {
+    body = <ScreenPartDetail part={part} onBack={() => setOverlay(null)} />;
+  } else if (tab === 'home') {
+    body = <ScreenDashboard onScan={() => setOverlay('scan')} onOpenPart={openPart} />;
+  } else if (tab === 'catalog') {
+    body = <ScreenCatalog onOpenPart={openPart} />;
+  } else {
+    body = <ScreenSales />;
+  }
+
+  const showChrome = authed && !overlay;
+  const showStatusDark = authed; // dark text on light bg once logged in
+
+  React.useEffect(() => {
+    const fit = () => {
+      const s = Math.min(1, (window.innerHeight - 36) / 800, (window.innerWidth - 36) / 390);
+      document.documentElement.style.setProperty('--phone-scale', s.toFixed(3));
+    };
+    fit(); window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
+  }, []);
+
+  return (
+    <div className="phone">
+      <div className="notch"></div>
+      <div className="screen">
+        {!overlay || overlay === 'part' || overlay === 'scan'
+          ? <div className="statusbar" style={{ color: authed ? 'var(--navy)' : '#fff', position: authed ? 'static' : 'absolute', left: 0, right: 0, zIndex: 50 }}>
+              <span>9:41</span>
+              <span className="ico">
+                <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="6" width="3" height="5" rx="1"/><rect x="4.5" y="3.5" width="3" height="7.5" rx="1"/><rect x="9" y="1.5" width="3" height="9.5" rx="1"/><rect x="13.5" y="0" width="3" height="11" rx="1"/></svg>
+                <svg width="22" height="11" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="19" height="10" rx="3" stroke="currentColor" strokeWidth="1.2" opacity=".5"/><rect x="2.5" y="2.5" width="14" height="7" rx="1.5" fill="currentColor"/><rect x="21" y="4" width="2" height="4" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+          : null}
+        <div className="view">{body}</div>
+        {showChrome && (
+          <div className="tabbar">
+            <button className={`tab ${tab==='home'?'active':''}`} onClick={() => setTab('home')}><Icon name="home" /><span>Painel</span></button>
+            <button className={`tab ${tab==='catalog'?'active':''}`} onClick={() => setTab('catalog')}><Icon name="grid" /><span>Peças</span></button>
+            <button className="tab" onClick={() => setOverlay('scan')}><span className="fab"><Icon name="plus" /></span></button>
+            <button className={`tab ${tab==='sales'?'active':''}`} onClick={() => setTab('sales')}><Icon name="chart" /><span>Vendas</span></button>
+            <button className="tab"><Icon name="gear" /><span>Ajustes</span></button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ScreenSales() {
+  const bars = [['ML',88,'#FFCB35'],['OLX',54,'var(--brand)'],['Face',40,'var(--brand)'],['Loja',62,'#008044']];
+  return (
+    <React.Fragment>
+      <div className="appbar"><div><div className="sub">Maio 2026</div><div className="title">Vendas</div></div></div>
+      <div className="content fade">
+        <div style={{ display:'flex', gap:12, marginBottom:18 }}>
+          <div className="card" style={{ flex:1, padding:'14px 15px' }}><div style={{fontSize:12,color:'var(--text-2)',fontWeight:600,marginBottom:5}}>Faturamento</div><div className="num" style={{fontSize:24,fontWeight:800,color:'var(--navy)'}}>R$ 38,4k</div></div>
+          <div className="card" style={{ flex:1, padding:'14px 15px' }}><div style={{fontSize:12,color:'var(--text-2)',fontWeight:600,marginBottom:5}}>Peças vendidas</div><div className="num" style={{fontSize:24,fontWeight:800,color:'var(--navy)'}}>54</div></div>
+        </div>
+        <div className="card" style={{ padding:16 }}>
+          <div style={{ display:'flex', justifyContent:'space-between', alignItems:'baseline', marginBottom:6 }}>
+            <span style={{ fontSize:15, fontWeight:700, color:'var(--navy)' }}>Vendas por canal</span>
+          </div>
+          <div style={{ display:'flex', alignItems:'flex-end', gap:14, height:150, marginTop:8 }}>
+            {bars.map(([l,h,c]) => (
+              <div key={l} style={{ flex:1, display:'flex', flexDirection:'column', alignItems:'center', gap:6, height:'100%', justifyContent:'flex-end' }}>
+                <div style={{ width:'100%', height:`${h}%`, borderRadius:'6px 6px 0 0', background:c }}></div>
+                <span style={{ fontSize:11, color:'var(--text-2)', fontWeight:600 }}>{l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

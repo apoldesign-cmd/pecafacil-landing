@@ -1,0 +1,29 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>body{background:#F7F9FC}
+.box{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-sm);width:230px;padding:22px;text-align:center}
+.empty .ic{width:42px;height:42px;color:#CBD5E1;margin-bottom:10px}
+.empty h5{margin:0 0 4px;font-size:15px;font-weight:700;color:var(--navy)}
+.empty p{margin:0 0 14px;font-size:12px;color:var(--text-2);line-height:1.45}
+.btn{font-size:13px;font-weight:600;border-radius:10px;padding:8px 16px;background:var(--brand);color:#fff;border:none}
+.sk{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow-sm);width:230px;padding:14px}
+.shim{background:linear-gradient(90deg,#EEF2F7 25%,#F8FAFC 50%,#EEF2F7 75%);background-size:200% 100%;animation:sh 1.3s infinite;border-radius:6px}
+@keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.bar-prog{height:4px;border-radius:999px;background:#E2E8F0;overflow:hidden;margin-top:10px}
+.bar-prog i{display:block;height:100%;width:60%;background:linear-gradient(90deg,#008044,#FFCB35)}
+</style></head>
+<body>
+<div style="display:flex;gap:14px;align-items:flex-start">
+  <div class="box empty">
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+    <h5>Nenhuma sucata ainda</h5>
+    <p>Cadastre pela placa para explodir as peças do veículo.</p>
+    <button class="btn">Cadastrar sucata</button>
+  </div>
+  <div class="sk">
+    <div class="shim" style="height:90px;margin-bottom:10px"></div>
+    <div class="shim" style="height:11px;width:50%;margin-bottom:7px"></div>
+    <div class="shim" style="height:11px;width:80%"></div>
+    <div class="bar-prog"><i></i></div>
+    <p class="df-small" style="margin:8px 0 0">Escaneando · 28 de 47 peças</p>
+  </div>
+</div>
+</body></html>

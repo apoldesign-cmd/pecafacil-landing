@@ -1,0 +1,194 @@
+/* ============================================================
+   PeçaFácil — Design System Foundations
+   colors_and_type.css
+   Tokens: color, typography, spacing, radius, shadow, motion
+   Font: Inter (loaded from Google Fonts in HTML <head>)
+   ============================================================ */
+
+/* If used standalone, ensure Inter is available:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+*/
+
+:root {
+  /* ---------- BRAND COLOR ---------- */
+  --navy:        #212E50;  /* wordmark "Peça", deep brand surfaces */
+  --navy-dark:   #1A2440;  /* darkest brand, footers, overlays */
+  --brand:       #3B5391;  /* wordmark "Fácil", primary action */
+  --brand-700:   #2C3F6E;  /* primary hover / pressed */
+
+  /* ---------- SENNA MOTIF (faixas verde+amarelo) ---------- */
+  --senna-green:  #008044; /* left stripe, success */
+  --senna-yellow: #FFCB35; /* right stripe, highlight */
+
+  /* ---------- NEUTRAL / SURFACE ---------- */
+  --bg:        #F7F9FC;  /* app background */
+  --card:      #FFFFFF;  /* card / panel surface */
+  --text:      #1E293B;  /* primary text */
+  --text-2:    #64748B;  /* secondary / muted text */
+  --border:    #E2E8F0;  /* hairline borders, dividers */
+
+  /* ---------- SEMANTIC ---------- */
+  --success: #008044;
+  --warning: #F59E0B;
+  --danger:  #EF4444;
+  --info:    #3B5391;
+
+  /* Tinted backgrounds for semantic surfaces (subtle) */
+  --success-bg: #E6F2EC;
+  --warning-bg: #FEF3E2;
+  --danger-bg:  #FDECEC;
+  --info-bg:    #ECEFF7;
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Inter", ui-monospace, "SF Mono", Menlo, monospace; /* plate / numerals lean */
+
+  /* Type scale (mobile-first; rem based, 16px root) */
+  --text-xs:   0.75rem;   /* 12px — captions, plate sublabels */
+  --text-sm:   0.875rem;  /* 14px — secondary, labels */
+  --text-base: 1rem;      /* 16px — body */
+  --text-lg:   1.125rem;  /* 18px — lead body */
+  --text-xl:   1.25rem;   /* 20px — card titles */
+  --text-2xl:  1.5rem;    /* 24px — section titles */
+  --text-3xl:  1.875rem;  /* 30px — page titles */
+  --text-4xl:  2.25rem;   /* 36px — hero (mobile) */
+  --text-5xl:  3rem;      /* 48px — hero (desktop) */
+  --text-6xl:  3.75rem;   /* 60px — display */
+
+  --leading-tight:   1.1;
+  --leading-snug:    1.25;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.65;
+
+  --tracking-tight:  -0.02em; /* bold display headings */
+  --tracking-snug:   -0.01em; /* titles */
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;  /* eyebrow / uppercase labels */
+  --tracking-plate:  0.12em;  /* Mercosul plate chars */
+
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extra:    800;
+
+  /* ---------- SPACING (4px base) ---------- */
+  --space-0: 0;
+  --space-1: 0.25rem;  /* 4 */
+  --space-2: 0.5rem;   /* 8 */
+  --space-3: 0.75rem;  /* 12 */
+  --space-4: 1rem;     /* 16 */
+  --space-5: 1.25rem;  /* 20 */
+  --space-6: 1.5rem;   /* 24 */
+  --space-8: 2rem;     /* 32 */
+  --space-10: 2.5rem;  /* 40 */
+  --space-12: 3rem;    /* 48 */
+  --space-16: 4rem;    /* 64 */
+  --space-20: 5rem;    /* 80 */
+  --space-24: 6rem;    /* 96 */
+
+  /* ---------- RADIUS ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;   /* default control radius */
+  --radius-lg: 14px;   /* cards */
+  --radius-xl: 20px;   /* large panels */
+  --radius-2xl: 28px;
+  --radius-full: 999px;
+
+  /* ---------- SHADOW / ELEVATION ---------- */
+  --shadow-xs: 0 1px 2px rgba(33, 46, 80, 0.06);
+  --shadow-sm: 0 1px 3px rgba(33, 46, 80, 0.08), 0 1px 2px rgba(33, 46, 80, 0.04);
+  --shadow-md: 0 4px 12px rgba(33, 46, 80, 0.08), 0 2px 4px rgba(33, 46, 80, 0.04);
+  --shadow-lg: 0 12px 28px rgba(33, 46, 80, 0.12), 0 4px 8px rgba(33, 46, 80, 0.05);
+  --shadow-xl: 0 24px 48px rgba(33, 46, 80, 0.16);
+  --shadow-focus: 0 0 0 3px rgba(59, 83, 145, 0.28); /* brand focus ring */
+
+  /* ---------- MOTION ---------- */
+  --ease-standard: cubic-bezier(0.2, 0.0, 0.2, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);
+  --dur-fast:   120ms;
+  --dur-base:   200ms;
+  --dur-slow:   320ms;
+
+  /* ---------- LAYOUT ---------- */
+  --container: 1200px;
+  --sidebar-w: 248px;
+  --header-h: 60px;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Apply these classes/elements directly for consistent type.
+   ============================================================ */
+
+.df-display {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-extra);
+  font-size: var(--text-6xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--navy);
+}
+
+h1, .df-h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-4xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--navy);
+}
+
+h2, .df-h2 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  color: var(--navy);
+}
+
+h3, .df-h3 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  color: var(--text);
+}
+
+p, .df-body {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text);
+}
+
+.df-lead {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-2);
+}
+
+.df-small {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+}
+
+.df-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--brand);
+}
+
+.df-num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}

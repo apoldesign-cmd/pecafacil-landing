@@ -1,0 +1,26 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>
+.field{display:flex;flex-direction:column;gap:5px;width:210px}
+.field label{font-size:12px;font-weight:600;color:var(--text)}
+.inp{font-family:var(--font-sans);font-size:14px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--text);transition:all var(--dur-base)}
+.inp::placeholder{color:#94A3B8}
+.inp.foc{border-color:var(--brand);box-shadow:var(--shadow-focus);outline:none}
+.inp.err{border-color:var(--danger);box-shadow:0 0 0 3px var(--danger-bg)}
+.hint{font-size:11px;color:var(--text-2)}
+.hint.errt{color:var(--danger)}
+select.inp{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+.chk{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text)}
+.box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center}
+.box.on{background:var(--brand);border-color:var(--brand)}
+</style></head>
+<body>
+<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+  <div class="field"><label>Placa</label><input class="inp" placeholder="ABC1D23"></div>
+  <div class="field"><label>Categoria</label><select class="inp"><option>Motor</option></select></div>
+  <div class="field"><label>Preço</label><input class="inp foc" value="R$ 1.430"><span class="hint">Foco — anel da marca</span></div>
+  <div class="field"><label>Placa</label><input class="inp err" value="ABC-123"><span class="hint errt">Formato Mercosul inválido</span></div>
+</div>
+<div style="display:flex;gap:24px;margin-top:16px">
+  <div class="chk"><span class="box on"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Anunciar no ML</div>
+  <div class="chk"><span class="box"></span> Publicar na OLX</div>
+</div>
+</body></html>

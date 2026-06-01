@@ -1,0 +1,22 @@
+/* Shared styles for Design System preview cards */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('../colors_and_type.css');
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: var(--font-sans);
+  background: var(--card);
+  color: var(--text);
+  padding: 20px 24px;
+  -webkit-font-smoothing: antialiased;
+}
+.card-grid { display: flex; flex-wrap: wrap; gap: 14px; }
+.lbl { font-size: 11px; color: var(--text-2); font-weight: 600; letter-spacing: .02em; }
+.mono { font-variant-numeric: tabular-nums; }
+
+/* swatch */
+.sw { display: flex; flex-direction: column; gap: 6px; }
+.sw .chip { height: 56px; border-radius: var(--radius-md); border: 1px solid var(--border); }
+.sw .name { font-size: 12px; font-weight: 700; color: var(--text); }
+.sw .hex { font-size: 11px; color: var(--text-2); font-variant-numeric: tabular-nums; text-transform: uppercase; }

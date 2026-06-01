@@ -1,0 +1,29 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>
+.btn{font-family:var(--font-sans);font-weight:600;font-size:14px;border-radius:10px;padding:10px 18px;border:1.5px solid transparent;cursor:pointer;transition:all var(--dur-base) var(--ease-standard);display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary.hv{background:var(--brand-700)}
+.btn-outline{background:#fff;color:var(--brand);border-color:var(--brand)}
+.btn-outline.hv{background:var(--info-bg)}
+.btn-ghost{background:transparent;color:var(--brand)}
+.btn-ghost.hv{background:var(--info-bg)}
+.btn:disabled,.btn.dis{opacity:.45;cursor:not-allowed}
+.btn.foc{box-shadow:var(--shadow-focus)}
+.row{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.cap{width:64px;font-size:11px;color:var(--text-2);font-weight:600}
+</style></head>
+<body>
+<div class="row"><span class="cap">default</span>
+  <button class="btn btn-primary">Começar grátis</button>
+  <button class="btn btn-outline">Ver o sistema</button>
+  <button class="btn btn-ghost">Cancelar</button>
+</div>
+<div class="row"><span class="cap">hover</span>
+  <button class="btn btn-primary hv">Começar grátis</button>
+  <button class="btn btn-outline hv">Ver o sistema</button>
+  <button class="btn btn-ghost hv">Cancelar</button>
+</div>
+<div class="row"><span class="cap">focus / off</span>
+  <button class="btn btn-primary foc">Começar grátis</button>
+  <button class="btn btn-primary dis">Salvando…</button>
+</div>
+</body></html>
