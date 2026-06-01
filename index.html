@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PeçaFácil — Gestão e anúncio de autopeças para desmanches</title>
+<meta name="description" content="Cadastre pela placa, precifique em segundos com inteligência do Mercado Livre e anuncie no ML, OLX e na sua loja própria. Notas fiscais, recibos e ordens de serviço num só lugar.">
+<link rel="stylesheet" href="landing/styles.css">
+</head>
+<body>
+
+<!-- ============ HEADER (slides in after scroll) ============ -->
+<header class="site-header" id="header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="PeçaFácil"><img src="landing/assets/logo-nostripe.svg" alt="PeçaFácil"></a>
+    <nav class="nav">
+      <a href="#como">Como funciona</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#painel">Painel &amp; IA</a>
+      <a href="#precos">Preços</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-ghost" href="#">Entrar</a>
+      <a class="btn btn-primary" href="#precos">Começar grátis</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <!-- hero top bar: big logo + actions only -->
+  <div class="wrap hero-bar">
+    <a class="hero-logo" href="#top" aria-label="PeçaFácil"><img src="landing/assets/logo-nostripe.svg" alt="PeçaFácil"></a>
+    <div class="hero-bar-cta">
+      <a class="btn btn-ghost" href="#">Entrar</a>
+      <a class="btn btn-primary" href="#precos">Começar grátis</a>
+    </div>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Gestão para desmanches</span>
+      <h1 class="reveal d1">Catalogue o carro inteiro <span class="hl">pela placa</span>.</h1>
+      <p class="lead reveal d2">Digite a placa e o PeçaFácil identifica o veículo, lista todas as peças e sugere o preço do Mercado Livre. Anuncie em todos os canais, emita nota, recibo e ordem de serviço — num lugar só.</p>
+      <div class="hero-actions reveal d3">
+        <a class="btn btn-primary btn-lg" href="#precos">Começar grátis</a>
+        <a class="btn btn-outline btn-lg" href="#painel">Ver o sistema</a>
+      </div>
+      <div class="reassure reveal d3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        Sem cartão · Plano gratuito para sempre
+      </div>
+    </div>
+
+    <!-- vehicle scan panel -->
+    <div class="vscan reveal d2" id="scanner">
+      <div class="vscan-top">
+        <span class="plate-mini">
+          <span class="pm-top">BR <span class="plate-flag"></span></span>
+          <span class="pm-num">ABC1D23</span>
+        </span>
+        <span class="searching"><span class="spinner"></span> Buscando em estoque</span>
+      </div>
+      <div class="vscan-stage">
+        <image-slot id="hero-car" placeholder="foto do veículo (VW Gol)"></image-slot>
+        <div class="scan-grid"></div>
+        <div class="scanline"></div>
+        <div class="vscan-vehicle"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> VW Gol 1.6 · 2014 · detectado</div>
+      </div>
+      <div class="vscan-readout">
+        <div class="part-now" id="partNow">
+          <span class="part-ico" id="partIco"></span>
+          <span class="part-meta"><span class="part-name" id="partName">Motor</span><span class="part-cat" id="partCat">Mecânica</span></span>
+          <span class="part-price" id="partPrice">R$ 2.400</span>
+        </div>
+        <div class="scan-bar"><i id="scanBar"></i></div>
+        <div class="vscan-foot"><b><span id="scanN">0</span> de 47</b> peças catalogadas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHANNELS ============ -->
+<section class="channels">
+  <div class="wrap">
+    <p class="label reveal">Anuncie onde seus clientes já procuram peças</p>
+    <div class="channel-row reveal d1">
+      <span class="channel"><span class="dot" style="background:#FFE600"></span> Mercado Livre</span>
+      <span class="channel"><span class="dot" style="background:#6E26F2"></span> OLX</span>
+      <span class="channel"><span class="dot" style="background:#1877F2"></span> Facebook</span>
+      <span class="channel"><span class="dot" style="background:var(--senna-green)"></span> Loja própria</span>
+      <span class="channel"><span class="dot" style="background:#25D366"></span> WhatsApp</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="s-pad" id="como">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Como funciona</span>
+      <h2 class="section-title reveal d1">Da placa ao anúncio em três passos</h2>
+      <p class="section-lead reveal d2">Sem planilha, sem foto perdida no celular, sem adivinhar preço. O fluxo inteiro cabe na palma da mão, dentro do pátio.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="ico-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></div>
+        <div class="num">1</div>
+        <h3>Cadastre pela placa</h3>
+        <p>Digite a placa e o sistema identifica o veículo e gera a lista completa de peças do modelo em segundos.</p>
+      </div>
+      <div class="step reveal d1">
+        <div class="ico-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></div>
+        <div class="num">2</div>
+        <h3>Precifique com inteligência</h3>
+        <p>Para cada peça, a oferta recomendada do Mercado Livre. Você ganha margem sem perder a venda.</p>
+      </div>
+      <div class="step reveal d2">
+        <div class="ico-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></div>
+        <div class="num">3</div>
+        <h3>Anuncie em 1 clique</h3>
+        <p>Publique no Mercado Livre, OLX, Facebook e na sua loja própria de uma vez. É só vender.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="s-pad s-white" id="recursos">
+  <div class="wrap">
+
+    <!-- Feature 1: cadastro por placa (foco) -->
+    <div class="feature">
+      <div class="feature-copy">
+        <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Cadastro por placa</span>
+        <h2 class="reveal d1">Um veículo inteiro catalogado em minutos</h2>
+        <p class="lead reveal d2">A placa é a chave. O PeçaFácil reconhece o modelo, explode todas as peças e já entra com categoria, condição e o preço sugerido. Você confere e pronto.</p>
+        <ul class="checks reveal d2">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>47 peças por veículo</b>, em segundos, sem digitar item por item.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Categorias automáticas: <b>motor, lataria, elétrica, interior</b> e mais.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Fotografe pelo celular e o catálogo se monta sozinho.</span></li>
+        </ul>
+        <a class="feat-cta reveal d3" href="#precos">Cadastrar minha primeira sucata <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="feature-media reveal d1">
+        <div class="frame">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <div style="font-size:13px;font-weight:700;color:var(--navy);">Peças do veículo <span style="color:var(--text-2);font-weight:600;">· VW Gol 2014</span></div>
+            <span class="channel" style="padding:6px 12px;font-size:12.5px;">47 itens</span>
+          </div>
+          <div class="parts-grid">
+            <div class="part-card"><image-slot id="part-1" placeholder="farol dianteiro"></image-slot><div class="meta"><div class="cat">Faróis</div><div class="nm">Farol direito</div><div class="pr">R$ 280</div></div></div>
+            <div class="part-card"><image-slot id="part-2" placeholder="capô"></image-slot><div class="meta"><div class="cat">Lataria</div><div class="nm">Capô</div><div class="pr">R$ 640</div></div></div>
+            <div class="part-card"><image-slot id="part-3" placeholder="retrovisor"></image-slot><div class="meta"><div class="cat">Lataria</div><div class="nm">Retrovisor esq.</div><div class="pr">R$ 150</div></div></div>
+            <div class="part-card"><image-slot id="part-4" placeholder="alternador"></image-slot><div class="meta"><div class="cat">Elétrica</div><div class="nm">Alternador</div><div class="pr">R$ 420</div></div></div>
+            <div class="part-card"><image-slot id="part-5" placeholder="painel"></image-slot><div class="meta"><div class="cat">Interior</div><div class="nm">Painel</div><div class="pr">R$ 310</div></div></div>
+            <div class="part-card"><image-slot id="part-6" placeholder="parachoque"></image-slot><div class="meta"><div class="cat">Lataria</div><div class="nm">Parachoque</div><div class="pr">R$ 390</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2: preço inteligente -->
+    <div class="feature flip">
+      <div class="feature-copy">
+        <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Preço inteligente</span>
+        <h2 class="reveal d1">O preço certo, com dados do Mercado Livre</h2>
+        <p class="lead reveal d2">Pare de chutar valor. Para cada peça, o sistema mostra a faixa de preço praticada e recomenda quanto cobrar para vender rápido sem entregar margem.</p>
+        <ul class="checks reveal d2">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Faixa real do mercado: <b>mínimo, médio e máximo</b>.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Alerta quando você está <b>abaixo do menor preço</b>.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Reprecificação em massa para o catálogo inteiro.</span></li>
+        </ul>
+      </div>
+      <div class="feature-media reveal d1">
+        <div class="frame price-card">
+          <div class="ph">
+            <image-slot id="price-part" style="width:54px;height:54px;border-radius:12px;flex:0 0 auto;" placeholder="peça"></image-slot>
+            <div><div class="nm">Alternador · VW Gol</div><div class="sub">Elétrica · estado bom</div></div>
+          </div>
+          <div class="price-row"><span class="k"><span class="dot" style="width:8px;height:8px;border-radius:3px;background:#cbd5e1;display:inline-block"></span> Menor preço ML</span><span class="v">R$ 340</span></div>
+          <div class="price-row"><span class="k"><span class="dot" style="width:8px;height:8px;border-radius:3px;background:var(--brand);display:inline-block"></span> Preço médio ML</span><span class="v">R$ 460</span></div>
+          <div class="price-row"><span class="k"><span class="dot" style="width:8px;height:8px;border-radius:3px;background:var(--navy);display:inline-block"></span> Maior preço ML</span><span class="v">R$ 590</span></div>
+          <div class="price-suggest">
+            <div><div class="s-l">PREÇO RECOMENDADO</div><div style="font-size:12px;color:var(--success);font-weight:600;margin-top:2px;">vende rápido, mantém margem</div></div>
+            <div class="s-v">R$ 420</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 3: anúncios multicanal -->
+    <div class="feature">
+      <div class="feature-copy">
+        <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Anúncios em 1 clique</span>
+        <h2 class="reveal d1">Um anúncio, todos os canais</h2>
+        <p class="lead reveal d2">A IA escreve o título e a descrição da peça. Você escolhe os canais e publica de uma vez — sem copiar e colar, sem refazer o anúncio em cada site.</p>
+        <ul class="checks reveal d2">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Título e descrição gerados pela <b>IA</b>, prontos pra publicar.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Publicação simultânea no <b>ML, OLX, Facebook</b> e loja própria.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Status de cada anúncio centralizado num painel.</span></li>
+        </ul>
+      </div>
+      <div class="feature-media reveal d1">
+        <div class="frame">
+          <div style="display:flex;gap:13px;align-items:flex-start;margin-bottom:16px;">
+            <image-slot id="ad-part" style="width:64px;height:64px;border-radius:12px;flex:0 0 auto;" placeholder="foto da peça"></image-slot>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:11px;font-weight:700;color:var(--brand);letter-spacing:.04em;display:flex;align-items:center;gap:6px;margin-bottom:5px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 4.66 11 8l3.34 1.06L11 10.12 9.94 13.46 8.88 10.12 5.54 9.06 8.88 8z"/></svg> GERADO PELA IA</div>
+              <div style="font-size:14.5px;font-weight:700;color:var(--navy);line-height:1.35;">Farol Dianteiro Direito VW Gol G6 2013-2016 Original ✅</div>
+              <div style="font-size:13px;color:var(--text-2);line-height:1.5;margin-top:5px;">Peça original em ótimo estado, testada, sem trincas. Encaixe perfeito. Enviamos para todo o Brasil.</div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border:1px solid var(--border);border-radius:10px;"><span style="display:flex;align-items:center;gap:9px;font-weight:700;font-size:14px;color:var(--navy);"><span class="dot" style="width:10px;height:10px;border-radius:3px;background:#FFE600;display:inline-block"></span> Mercado Livre</span><span class="stamp" style="background:var(--success-bg);color:var(--success);">publicado</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border:1px solid var(--border);border-radius:10px;"><span style="display:flex;align-items:center;gap:9px;font-weight:700;font-size:14px;color:var(--navy);"><span class="dot" style="width:10px;height:10px;border-radius:3px;background:#6E26F2;display:inline-block"></span> OLX</span><span class="stamp" style="background:var(--success-bg);color:var(--success);">publicado</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 14px;border:1px solid var(--border);border-radius:10px;"><span style="display:flex;align-items:center;gap:9px;font-weight:700;font-size:14px;color:var(--navy);"><span class="dot" style="width:10px;height:10px;border-radius:3px;background:#1877F2;display:inline-block"></span> Facebook</span><span class="stamp" style="background:var(--warning-bg);color:var(--warning);">enviando…</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ NOTA FISCAL & ORDEM DE SERVIÇO ============ -->
+<section class="s-pad s-tint" id="documentos">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Documentos &amp; vendas</span>
+      <h2 class="section-title reveal d1">Nota fiscal, recibo e ordem de serviço — sem sair do sistema</h2>
+      <p class="section-lead reveal d2">Toda venda gera o documento certo. Emita orçamentos, recibos e notas, abra ordens de serviço e acompanhe o que entra e o que sai com a placa sempre amarrada à peça.</p>
+    </div>
+    <div class="doc-pair reveal d1">
+      <!-- Nota fiscal / recibo -->
+      <div class="doc">
+        <div class="doc-head">
+          <span class="ic" style="background:var(--info-bg);color:var(--brand);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></span>
+          <div><div class="t">Nota fiscal · venda</div><div class="d">NF-e 001.482 · 30/05/2026</div></div>
+          <span style="margin-left:auto;" class="stamp"><span class="stamp" style="background:var(--success-bg);color:var(--success);"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> emitida</span></span>
+        </div>
+        <div class="doc-body">
+          <div class="dline"><span class="dk">Cliente</span><span class="dv">João M. Oliveira</span></div>
+          <div class="dline"><span class="dk">Peça</span><span class="dv">Alternador · VW Gol</span></div>
+          <div class="dline"><span class="dk">Origem (placa)</span><span class="dv">ABC1D23</span></div>
+          <div class="dline dash"><span class="dk">Valor da peça</span><span class="dv">R$ 420,00</span></div>
+          <div class="dline"><span class="dk">Frete</span><span class="dv">R$ 38,00</span></div>
+          <div class="dtotal"><span class="dk">Total</span><span class="dv">R$ 458,00</span></div>
+        </div>
+      </div>
+      <!-- Ordem de serviço -->
+      <div class="doc">
+        <div class="doc-head">
+          <span class="ic" style="background:var(--success-bg);color:var(--senna-green);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v0a2 2 0 0 1 2-2"/><path d="M9 6H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-3"/><path d="m9 14 2 2 4-4"/></svg></span>
+          <div><div class="t">Ordem de serviço</div><div class="d">OS #0327 · aberta hoje</div></div>
+          <span style="margin-left:auto;"><span class="stamp" style="background:var(--warning-bg);color:var(--warning);">em andamento</span></span>
+        </div>
+        <div class="doc-body">
+          <div class="dline"><span class="dk">Veículo</span><span class="dv">VW Gol 1.6 · 2014</span></div>
+          <div class="dline"><span class="dk">Placa</span><span class="dv">ABC1D23</span></div>
+          <div class="dline"><span class="dk">Responsável</span><span class="dv">Carlos (desmonte)</span></div>
+          <div class="dline dash"><span class="dk">Peças catalogadas</span><span class="dv">47 itens</span></div>
+          <div class="dline"><span class="dk">Já anunciadas</span><span class="dv">31 itens</span></div>
+          <div class="dtotal"><span class="dk">Valor potencial</span><span class="dv">R$ 18.240</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAINEL & IA ============ -->
+<section class="s-pad" id="painel">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Painel &amp; Insights de IA</span>
+      <h2 class="section-title reveal d1">Você enxerga o negócio inteiro numa tela</h2>
+      <p class="section-lead reveal d2">Estoque, receita recuperada, peças por categoria e o que fazer agora. A IA olha o seu catálogo e diz onde está o dinheiro na mesa.</p>
+    </div>
+
+    <div class="browser reveal d1">
+      <div class="browser-bar">
+        <span class="lights"><i style="background:#FF5F57"></i><i style="background:#FEBC2E"></i><i style="background:#28C840"></i></span>
+        <span class="url">app.pecafacil.com.br/overview</span>
+      </div>
+      <div class="appshell">
+        <aside class="app-side">
+          <div class="side-logo"><img src="landing/assets/logo.svg" alt="PeçaFácil"></div>
+          <div class="side-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> Buscar</div>
+          <nav class="side-nav">
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11h14V9"/></svg> Início</a>
+            <a class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg> Dashboard</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h2v-3.6a1 1 0 0 0-.3-.7L17 8h-3"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/><path d="M3 16V6a1 1 0 0 1 1-1h10v11"/></svg> Sucatas</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg> Peças</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/><path d="M13 6h8M13 12h8M13 18h8"/></svg> Tarefas <span class="side-badge">119</span></a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg> Anúncios</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 4.66 11 8l3.34 1.06L11 10.12 9.94 13.46 8.88 10.12 5.54 9.06 8.88 8z"/><path d="M18 4v3M20 5.5h-3.5"/></svg> Insights IA</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-8 0v2"/><circle cx="12" cy="7" r="4"/></svg> Usuários</a>
+          </nav>
+          <div class="side-plan">
+            <div class="sp-t"><svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M5 16 3 5l5.5 5L12 4l3.5 6L21 5l-2 11z"/></svg> Plano Starter · grátis</div>
+            <div class="sp-d">Desbloqueie preço ML, todos os canais e dashboards.</div>
+            <span class="sp-btn">Assinar o Pro</span>
+          </div>
+        </aside>
+        <div class="app-main">
+        <div class="plan-banner">
+          <span class="pb-l"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M5 16 3 5l5.5 5L12 4l3.5 6L21 5l-2 11z"/></svg> Você está no plano gratuito. Assine o Pro para liberar inteligência de preço, todos os canais e dashboards.</span>
+          <span class="pb-btn">Ver o Pro →</span>
+        </div>
+        <div class="dash-hi">
+          <div>
+            <h3>Olá, Victor!</h3>
+            <p>Por onde vamos começar hoje?</p>
+          </div>
+          <a class="btn btn-amber" href="#"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg> Cadastrar por placa</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi accent"><div class="k">Sucatas cadastradas</div><div class="v" data-count="8">0</div><div class="d up">▲ 20% vs. mês passado</div><svg class="spark" viewBox="0 0 90 28" preserveAspectRatio="none"><path d="M0,22 L18,20 L36,21 L54,14 L72,10 L90,5" fill="none" stroke="#008044" stroke-width="2"/></svg></div>
+          <div class="kpi"><div class="k">Peças cadastradas</div><div class="v" data-count="364">0</div><div class="d up">▲ 40% vs. mês passado</div><svg class="spark" viewBox="0 0 90 28" preserveAspectRatio="none"><path d="M0,24 L18,21 L36,18 L54,15 L72,9 L90,4" fill="none" stroke="#008044" stroke-width="2"/></svg></div>
+          <div class="kpi"><div class="k">Valor em estoque</div><div class="v" data-count="152600" data-prefix="R$ ">R$ 0</div><div class="d up">▲ 12% vs. mês passado</div><svg class="spark" viewBox="0 0 90 28" preserveAspectRatio="none"><path d="M0,20 L18,21 L36,16 L54,17 L72,11 L90,7" fill="none" stroke="#3B5391" stroke-width="2"/></svg></div>
+          <div class="kpi"><div class="k">% anunciado</div><div class="v" data-count="25" data-suffix="%">0%</div><div class="d dn">▼ 8% vs. mês passado</div><svg class="spark" viewBox="0 0 90 28" preserveAspectRatio="none"><path d="M0,8 L18,10 L36,9 L54,14 L72,16 L90,20" fill="none" stroke="#EF4444" stroke-width="2"/></svg></div>
+        </div>
+        <div class="dash-lower">
+          <div class="panel">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;"><div><div class="pt">Receita recuperada</div><div style="font-size:24px;font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-top:8px;font-variant-numeric:tabular-nums;">R$ 49.340 <span style="font-size:13px;color:var(--senna-green);">▲ 18%</span></div></div><div class="ps">Últimos 6 meses</div></div>
+            <div class="chart">
+              <svg viewBox="0 0 560 180" preserveAspectRatio="none" aria-hidden="true">
+                <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#008044" stop-opacity=".18"/><stop offset="1" stop-color="#008044" stop-opacity="0"/></linearGradient></defs>
+                <g stroke="#E2E8F0" stroke-width="1"><line x1="0" y1="40" x2="560" y2="40"/><line x1="0" y1="80" x2="560" y2="80"/><line x1="0" y1="120" x2="560" y2="120"/><line x1="0" y1="160" x2="560" y2="160"/></g>
+                <path id="area" d="M0,135 C70,128 110,118 160,108 C220,96 250,100 300,116 C350,132 390,120 440,96 C490,72 520,58 560,46 L560,180 L0,180 Z" fill="url(#g1)" opacity="0"/>
+                <path id="line" d="M0,135 C70,128 110,118 160,108 C220,96 250,100 300,116 C350,132 390,120 440,96 C490,72 520,58 560,46" fill="none" stroke="#008044" stroke-width="3" stroke-linecap="round"/>
+                <g fill="#94A3B8" font-size="11" font-family="Inter" font-weight="600"><text x="2" y="176">Dez</text><text x="110" y="176">Jan</text><text x="220" y="176">Fev</text><text x="330" y="176">Mar</text><text x="430" y="176">Abr</text><text x="535" y="176">Mai</text></g>
+              </svg>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="pt">Peças por categoria</div>
+            <div class="ps">Top do catálogo</div>
+            <div class="cat-row"><span class="cn">Lataria e Estrutura</span><span class="bar"><i data-w="100"></i></span><span class="cv">64</span></div>
+            <div class="cat-row"><span class="cn">Motor</span><span class="bar"><i data-w="62"></i></span><span class="cv">40</span></div>
+            <div class="cat-row"><span class="cn">Elétrica</span><span class="bar"><i data-w="62"></i></span><span class="cv">40</span></div>
+            <div class="cat-row"><span class="cn">Interior</span><span class="bar"><i data-w="59"></i></span><span class="cv">38</span></div>
+            <div class="cat-row"><span class="cn">Câmbio</span><span class="bar"><i data-w="50"></i></span><span class="cv">32</span></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- insights -->
+    <div class="insights">
+      <div class="ins-summary reveal">
+        <div class="sparkle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 14.5 9.5 22 12 14.5 14.5 12 22 9.5 14.5 2 12 9.5 9.5z"/></svg></div>
+        <div class="el">RESUMO DA IA</div>
+        <p>Encontramos <b>5 ações</b> que podem acelerar suas vendas. Priorize as de <span class="green">oportunidade</span> — são dinheiro na mesa.</p>
+      </div>
+      <div class="ins-card reveal d1">
+        <div class="top"><span class="ins-tag" style="color:var(--senna-green)"><span class="dot" style="background:var(--senna-green)"></span> Oportunidade</span><span class="cnt">54 peças</span></div>
+        <h4>Anuncie suas peças de alta procura</h4>
+        <p>54 peças marcadas como procuradas ainda não estão anunciadas. São as que vendem mais rápido.</p>
+        <span class="act">Criar anúncios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="ins-card reveal d2">
+        <div class="top"><span class="ins-tag" style="color:var(--warning)"><span class="dot" style="background:var(--warning)"></span> Preço</span><span class="cnt">24 peças</span></div>
+        <h4>Você pode cobrar mais</h4>
+        <p>24 peças estão abaixo do menor preço do Mercado Livre. Reprecifique para ganhar margem sem perder a venda.</p>
+        <span class="act">Revisar preços <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="ins-card reveal d1">
+        <div class="top"><span class="ins-tag" style="color:var(--brand)"><span class="dot" style="background:var(--brand)"></span> Tarefa</span><span class="cnt">134 peças</span></div>
+        <h4>Peças sem preço definido</h4>
+        <p>134 peças em estoque ainda não têm preço. Use o preço recomendado do mercado para precificar em segundos.</p>
+        <span class="act">Precificar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="ins-card reveal d2">
+        <div class="top"><span class="ins-tag" style="color:var(--brand)"><span class="dot" style="background:var(--brand)"></span> Tarefa</span><span class="cnt">152 peças</span></div>
+        <h4>Anúncios sem foto vendem menos</h4>
+        <p>152 peças estão sem foto. Fotografe pelo celular ou use o catálogo genérico para não perder venda.</p>
+        <span class="act">Adicionar fotos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ANTES / DEPOIS ============ -->
+<section class="s-pad s-white">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Antes e depois</span>
+      <h2 class="section-title reveal d1">De pátio bagunçado a negócio organizado</h2>
+    </div>
+    <div class="ba reveal d1">
+      <div class="ba-col before">
+        <span class="tag">Antes do PeçaFácil</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Peças sem controle, fotos perdidas no WhatsApp</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Preço no chute, margem espremida</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Anúncio refeito à mão em cada site</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Recibo no caderno, nota fiscal só no fim do mês</li>
+        </ul>
+      </div>
+      <div class="ba-mid"><span class="ba-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="ba-col after">
+        <span class="tag">Com o PeçaFácil</span>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Catálogo completo gerado pela placa</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Preço recomendado do mercado, +30% de margem</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Anúncio em todos os canais com 1 clique</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Nota, recibo e ordem de serviço automáticos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="s-pad s-tint">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="n" data-count="47">0</div><div class="l">peças catalogadas por veículo, em segundos</div></div>
+      <div class="stat reveal d1"><div class="n">+<span data-count="30">0</span><span class="u">%</span></div><div class="l">de margem com preço inteligente</div></div>
+      <div class="stat reveal d2"><div class="n"><span data-count="5">0</span></div><div class="l">canais de venda num só clique</div></div>
+      <div class="stat reveal d3"><div class="n"><span data-count="1">0</span></div><div class="l">lugar para todo o seu desmanche</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREÇOS ============ -->
+<section class="s-pad s-white" id="precos">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Preços</span>
+      <h2 class="section-title reveal d1">Comece grátis. Escale quando quiser.</h2>
+      <p class="section-lead reveal d2">Plano gratuito para sempre, sem cartão. Quando o pátio crescer, o Pro libera inteligência de preço, todos os canais e dashboards.</p>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <div class="pn">Starter</div>
+        <div class="pp"><span class="amt">R$ 0</span><span class="per">/ para sempre</span></div>
+        <div class="pd">Para começar a organizar o desmanche hoje mesmo.</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Cadastro por placa ilimitado</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Catálogo de peças e fotos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Recibos e ordens de serviço</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Anúncio na loja própria</li>
+          <li class="off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg> Inteligência de preço ML</li>
+        </ul>
+        <a class="btn btn-outline btn-block" href="#">Começar grátis</a>
+      </div>
+      <div class="plan featured reveal d1">
+        <span class="badge">Mais popular</span>
+        <div class="pn">Pro</div>
+        <div class="pp"><span class="amt">R$ 149</span><span class="per">/ mês</span></div>
+        <div class="pd">Para vender mais, em todos os canais, com margem.</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Tudo do Starter</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <b>Inteligência de preço do Mercado Livre</b></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Anúncio em ML, OLX, Facebook e WhatsApp</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Insights de IA e dashboards completos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Notas fiscais e usuários da equipe</li>
+        </ul>
+        <a class="btn btn-primary btn-block" href="#">Assinar o Pro</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIAL ============ -->
+<section class="s-pad s-tint">
+  <div class="wrap quote reveal">
+    <div class="mark">&ldquo;</div>
+    <blockquote>Eu catalogava um carro num dia inteiro. Agora cadastro pela placa e em minutos está tudo anunciado. O preço do Mercado Livre sozinho já me deu mais margem.</blockquote>
+    <div class="by">
+      <image-slot id="depo-1" placeholder="foto"></image-slot>
+      <div class="who"><div class="nm">Victor Dias</div><div class="ro">Desmanche Silva · São Paulo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="s-pad s-white">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow reveal"><span class="stripe"><i class="g"></i><i class="y"></i></span> Dúvidas</span>
+      <h2 class="section-title reveal d1">Perguntas frequentes</h2>
+    </div>
+    <div class="faq reveal d1">
+      <details open>
+        <summary>Como funciona o cadastro pela placa? <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Você digita a placa do veículo e o PeçaFácil identifica o modelo e gera automaticamente a lista de peças daquele carro, já com categoria e preço sugerido. Você confere, fotografa e o catálogo fica pronto.</p>
+      </details>
+      <details>
+        <summary>O PeçaFácil emite nota fiscal e ordem de serviço? <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Sim. Cada venda pode gerar orçamento, recibo e nota fiscal, e você abre ordens de serviço para acompanhar o desmonte de cada veículo — sempre com a placa amarrada à peça de origem.</p>
+      </details>
+      <details>
+        <summary>De onde vem o preço recomendado? <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>O preço recomendado é calculado a partir das ofertas reais do Mercado Livre para cada peça. O sistema mostra a faixa praticada e sugere um valor que vende rápido sem entregar sua margem.</p>
+      </details>
+      <details>
+        <summary>Em quais canais eu posso anunciar? <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Mercado Livre, OLX, Facebook, WhatsApp e a sua loja própria. A IA escreve título e descrição e você publica em todos de uma vez, sem refazer o anúncio em cada lugar.</p>
+      </details>
+      <details>
+        <summary>O plano gratuito tem prazo? <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <p>Não. O plano Starter é gratuito para sempre, sem cartão. Você só assina o Pro quando quiser liberar inteligência de preço, todos os canais e os dashboards completos.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="s-pad">
+  <div class="wrap">
+    <div class="cta-band reveal" id="ctaBand">
+      <div class="cta-stripe-bg" aria-hidden="true"></div>
+      <div class="cta-inner">
+        <img class="cta-logo" src="landing/assets/logo-light.svg" alt="PeçaFácil">
+        <h2>Experimente agora. Digite uma placa.</h2>
+        <p>Veja o catálogo se montar sozinho, aqui mesmo. É de graça e leva menos tempo do que ler esta página.</p>
+
+        <form class="cta-plate-form" id="ctaForm" autocomplete="off">
+          <div class="cta-plate" id="ctaPlate">
+            <span class="cpb-top">BR <span class="plate-flag"></span></span>
+            <input id="plateInput" class="cpb-input" maxlength="7" placeholder="ABC1D23" aria-label="Placa do veículo" value="ABC1D23">
+          </div>
+          <button type="submit" class="btn btn-amber btn-lg cta-go" id="ctaGo">
+            <span class="go-label">Catalogar</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <div class="cta-examples">Experimente: <button type="button" class="ex" data-p="ABC1D23">ABC1D23</button><button type="button" class="ex" data-p="GOL2014">GOL2014</button><button type="button" class="ex" data-p="HB20XYZ">HB20XYZ</button></div>
+
+        <!-- result that builds itself -->
+        <div class="cta-result" id="ctaResult" hidden>
+          <div class="ctar-head">
+            <span class="ctar-veh"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> <span id="ctarVeh">VW Gol 1.6 · 2014</span></span>
+            <span class="ctar-count"><b id="ctarN">0</b> de 47 peças</span>
+          </div>
+          <div class="ctar-bar"><i id="ctarBar"></i></div>
+          <div class="ctar-chips" id="ctarChips"></div>
+          <div class="ctar-value">Valor potencial em peças: <b id="ctarValue">R$ 0</b></div>
+        </div>
+
+        <div class="cta-actions" id="ctaActions">
+          <a class="btn btn-amber btn-lg" href="#">Começar grátis</a>
+          <a class="btn btn-outline-light btn-lg" href="#painel">Ver o sistema</a>
+        </div>
+        <div class="reassure">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          Sem cartão · Plano gratuito para sempre
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top"><img src="landing/assets/logo-light.svg" alt="PeçaFácil"></a>
+        <p class="blurb">Gestão e anúncio de autopeças usadas para desmanches. Cadastro automático por placa.</p>
+      </div>
+      <div class="fcol">
+        <h5>Produto</h5>
+        <a href="#como">Como funciona</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#painel">Painel &amp; IA</a>
+        <a href="#precos">Preços</a>
+      </div>
+      <div class="fcol">
+        <h5>Recursos</h5>
+        <a href="#recursos">Cadastro por placa</a>
+        <a href="#recursos">Preço inteligente</a>
+        <a href="#documentos">Nota &amp; ordem de serviço</a>
+        <a href="#recursos">Anúncios multicanal</a>
+      </div>
+      <div class="fcol">
+        <h5>Empresa</h5>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+        <a href="#">Termos</a>
+        <a href="#">Privacidade</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PeçaFácil · Gestão de autopeças para desmanches</span>
+      <span>Feito no Brasil 🇧🇷</span>
+    </div>
+  </div>
+</footer>
+
+<script src="landing/image-slot.js"></script>
+<script src="landing/motion.js"></script>
+</body>
+</html>
