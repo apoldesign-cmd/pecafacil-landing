@@ -95,14 +95,14 @@
   };
   // px/py = position on the car as % of stage width/height
   var PARTS = [
-    { n: 'Motor 1.6',      c: 'Mecânica',      p: 'R$ 2.400', i: 'cog',     px: 17, py: 52 },
-    { n: 'Câmbio',         c: 'Transmissão',   p: 'R$ 1.850', i: 'sliders', px: 42, py: 68 },
-    { n: 'Pistão',         c: 'Mecânica',      p: 'R$ 180',   i: 'piston',  px: 22, py: 44 },
-    { n: 'Biela',          c: 'Mecânica',      p: 'R$ 140',   i: 'link',    px: 28, py: 56 },
-    { n: 'Roda de liga',   c: 'Suspensão',     p: 'R$ 320',   i: 'wheel',   px: 25, py: 89 },
-    { n: 'Alternador',     c: 'Elétrica',      p: 'R$ 420',   i: 'zap',     px: 19, py: 38 },
-    { n: 'Farol dianteiro',c: 'Iluminação',    p: 'R$ 280',   i: 'bulb',    px: 10, py: 68 },
-    { n: 'Radiador',       c: 'Arrefecimento', p: 'R$ 390',   i: 'grille',  px: 13, py: 58 }
+    { n: 'Motor 1.6',      c: 'Mecânica',      p: 'R$ 2.400', i: 'cog',     px: 27, py: 50 },
+    { n: 'Câmbio',         c: 'Transmissão',   p: 'R$ 1.850', i: 'sliders', px: 37, py: 61 },
+    { n: 'Pistão',         c: 'Mecânica',      p: 'R$ 180',   i: 'piston',  px: 24, py: 38 },
+    { n: 'Biela',          c: 'Mecânica',      p: 'R$ 140',   i: 'link',    px: 29, py: 62 },
+    { n: 'Roda de liga',   c: 'Suspensão',     p: 'R$ 320',   i: 'wheel',   px: 33, py: 79 },
+    { n: 'Alternador',     c: 'Elétrica',      p: 'R$ 420',   i: 'zap',     px: 22, py: 31 },
+    { n: 'Farol dianteiro',c: 'Iluminação',    p: 'R$ 280',   i: 'bulb',    px: 21, py: 72 },
+    { n: 'Radiador',       c: 'Arrefecimento', p: 'R$ 390',   i: 'grille',  px: 20, py: 50 }
   ];
   function svgWrap(d) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
