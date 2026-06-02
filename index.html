@@ -64,9 +64,41 @@
         <span class="searching"><span class="spinner"></span> Buscando em estoque</span>
       </div>
       <div class="vscan-stage">
-        <image-slot id="hero-car" placeholder="foto do veículo (VW Gol)"></image-slot>
+        <svg class="car-illus" viewBox="0 0 600 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M52 248 L52 210 Q54 198 68 188 L82 178 L148 122 Q182 85 248 76 L360 72 Q418 72 450 90 L500 122 L522 168 L526 210 L526 248 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.22)" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M152 156 L196 88 L328 78 L342 156 Z" fill="rgba(59,83,145,0.38)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+          <path d="M346 156 L362 80 Q408 76 448 106 L472 142 L476 156 Z" fill="rgba(59,83,145,0.38)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+          <line x1="344" y1="156" x2="344" y2="238" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+          <rect x="252" y="182" width="24" height="7" rx="3.5" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+          <path d="M152 138 L162 132 L170 138 L162 145 Z" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <path d="M54 208 L54 194 Q58 182 72 178 L82 178 L80 194 L58 210 Z" fill="rgba(255,236,153,0.2)" stroke="rgba(255,203,53,0.65)" stroke-width="1.5"/>
+          <path d="M55 214 L78 208" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M504 180 L522 182 L524 208 L504 208 Z" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.6)" stroke-width="1.5"/>
+          <rect x="490" y="246" width="20" height="6" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <path d="M66 248 Q66 196 148 196 Q232 196 234 248" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+          <path d="M370 248 Q370 196 452 196 Q534 196 536 248" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+          <circle cx="148" cy="248" r="42" fill="#091322" stroke="rgba(255,255,255,0.32)" stroke-width="2.5"/>
+          <circle cx="148" cy="248" r="30" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+          <circle cx="148" cy="248" r="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+          <line x1="148" y1="218" x2="148" y2="238" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="148" y1="258" x2="148" y2="278" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="118" y1="248" x2="138" y2="248" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="158" y1="248" x2="178" y2="248" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="127" y1="227" x2="141" y2="241" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+          <line x1="169" y1="227" x2="155" y2="241" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+          <circle cx="452" cy="248" r="42" fill="#091322" stroke="rgba(255,255,255,0.32)" stroke-width="2.5"/>
+          <circle cx="452" cy="248" r="30" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+          <circle cx="452" cy="248" r="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+          <line x1="452" y1="218" x2="452" y2="238" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="452" y1="258" x2="452" y2="278" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="422" y1="248" x2="442" y2="248" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="462" y1="248" x2="482" y2="248" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+          <line x1="431" y1="227" x2="445" y2="241" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+          <line x1="473" y1="227" x2="459" y2="241" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+        </svg>
         <div class="scan-grid"></div>
         <div class="scanline"></div>
+        <div class="part-markers" id="partMarkers"></div>
         <div class="vscan-vehicle"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> VW Gol 1.6 · 2014 · detectado</div>
       </div>
       <div class="vscan-readout">
@@ -151,12 +183,12 @@
             <span class="channel" style="padding:6px 12px;font-size:12.5px;">47 itens</span>
           </div>
           <div class="parts-grid">
-            <div class="part-card"><image-slot id="part-1" placeholder="farol dianteiro"></image-slot><div class="meta"><div class="cat">Faróis</div><div class="nm">Farol direito</div><div class="pr">R$ 280</div></div></div>
-            <div class="part-card"><image-slot id="part-2" placeholder="capô"></image-slot><div class="meta"><div class="cat">Lataria</div><div class="nm">Capô</div><div class="pr">R$ 640</div></div></div>
-            <div class="part-card"><image-slot id="part-3" placeholder="retrovisor"></image-slot><div class="meta"><div class="cat">Lataria</div><div class="nm">Retrovisor esq.</div><div class="pr">R$ 150</div></div></div>
-            <div class="part-card"><image-slot id="part-4" placeholder="alternador"></image-slot><div class="meta"><div class="cat">Elétrica</div><div class="nm">Alternador</div><div class="pr">R$ 420</div></div></div>
-            <div class="part-card"><image-slot id="part-5" placeholder="painel"></image-slot><div class="meta"><div class="cat">Interior</div><div class="nm">Painel</div><div class="pr">R$ 310</div></div></div>
-            <div class="part-card"><image-slot id="part-6" placeholder="parachoque"></image-slot><div class="meta"><div class="cat">Lataria</div><div class="nm">Parachoque</div><div class="pr">R$ 390</div></div></div>
+            <div class="part-card"><div class="part-ph" style="background:linear-gradient(135deg,#1a2440,#2c3f6e)"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .6-1.7 1.4-2.5A4.6 4.6 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.8.8 1.2 1.5 1.4 2.5"/></svg></div><div class="meta"><div class="cat">Faróis</div><div class="nm">Farol direito</div><div class="pr">R$ 280</div></div></div>
+            <div class="part-card"><div class="part-ph" style="background:linear-gradient(135deg,#1a3020,#008044)"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div><div class="meta"><div class="cat">Lataria</div><div class="nm">Capô</div><div class="pr">R$ 640</div></div></div>
+            <div class="part-card"><div class="part-ph" style="background:linear-gradient(135deg,#1a2440,#3b5391)"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 9a9 9 0 0 1 9-6 9 9 0 0 1 9 6"/><path d="M3 15a9 9 0 0 0 9 6 9 9 0 0 0 9-6"/></svg></div><div class="meta"><div class="cat">Lataria</div><div class="nm">Retrovisor esq.</div><div class="pr">R$ 150</div></div></div>
+            <div class="part-card"><div class="part-ph" style="background:linear-gradient(135deg,#2a1a10,#c47a30)"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div><div class="meta"><div class="cat">Elétrica</div><div class="nm">Alternador</div><div class="pr">R$ 420</div></div></div>
+            <div class="part-card"><div class="part-ph" style="background:linear-gradient(135deg,#1a1030,#6b46c1)"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div><div class="meta"><div class="cat">Interior</div><div class="nm">Painel</div><div class="pr">R$ 310</div></div></div>
+            <div class="part-card"><div class="part-ph" style="background:linear-gradient(135deg,#201a10,#9a7a20)"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h2v-3.6a1 1 0 0 0-.3-.7L17 8h-3"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/><path d="M3 16V6a1 1 0 0 1 1-1h10v11"/></svg></div><div class="meta"><div class="cat">Lataria</div><div class="nm">Parachoque</div><div class="pr">R$ 390</div></div></div>
           </div>
         </div>
       </div>
@@ -177,7 +209,7 @@
       <div class="feature-media reveal d1">
         <div class="frame price-card">
           <div class="ph">
-            <image-slot id="price-part" style="width:54px;height:54px;border-radius:12px;flex:0 0 auto;" placeholder="peça"></image-slot>
+            <div style="width:54px;height:54px;border-radius:12px;flex:0 0 auto;background:linear-gradient(135deg,#2a1a10,#c47a30);display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg></div>
             <div><div class="nm">Alternador · VW Gol</div><div class="sub">Elétrica · estado bom</div></div>
           </div>
           <div class="price-row"><span class="k"><span class="dot" style="width:8px;height:8px;border-radius:3px;background:#cbd5e1;display:inline-block"></span> Menor preço ML</span><span class="v">R$ 340</span></div>
@@ -206,7 +238,7 @@
       <div class="feature-media reveal d1">
         <div class="frame">
           <div style="display:flex;gap:13px;align-items:flex-start;margin-bottom:16px;">
-            <image-slot id="ad-part" style="width:64px;height:64px;border-radius:12px;flex:0 0 auto;" placeholder="foto da peça"></image-slot>
+            <div style="width:64px;height:64px;border-radius:12px;flex:0 0 auto;background:linear-gradient(135deg,#1a2440,#2c3f6e);display:flex;align-items:center;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .6-1.7 1.4-2.5A4.6 4.6 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.8.8 1.2 1.5 1.4 2.5"/></svg></div>
             <div style="flex:1;min-width:0;">
               <div style="font-size:11px;font-weight:700;color:var(--brand);letter-spacing:.04em;display:flex;align-items:center;gap:6px;margin-bottom:5px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 4.66 11 8l3.34 1.06L11 10.12 9.94 13.46 8.88 10.12 5.54 9.06 8.88 8z"/></svg> GERADO PELA IA</div>
               <div style="font-size:14.5px;font-weight:700;color:var(--navy);line-height:1.35;">Farol Dianteiro Direito VW Gol G6 2013-2016 Original ✅</div>
@@ -473,7 +505,7 @@
     <div class="mark">&ldquo;</div>
     <blockquote>Eu catalogava um carro num dia inteiro. Agora cadastro pela placa e em minutos está tudo anunciado. O preço do Mercado Livre sozinho já me deu mais margem.</blockquote>
     <div class="by">
-      <image-slot id="depo-1" placeholder="foto"></image-slot>
+      <div style="width:52px;height:52px;border-radius:999px;flex:0 0 auto;background:linear-gradient(135deg,#212e50,#3b5391);display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <div class="who"><div class="nm">Victor Dias</div><div class="ro">Desmanche Silva · São Paulo</div></div>
     </div>
   </div>

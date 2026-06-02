@@ -93,19 +93,40 @@
     bulb: '<path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.1 14c.2-1 .6-1.7 1.4-2.5A4.6 4.6 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.8.8 1.2 1.5 1.4 2.5"/>',
     grille: '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8.5 4v16M12 4v16M15.5 4v16"/>'
   };
+  // px/py = position on the car as % of stage width/height
   var PARTS = [
-    { n: 'Motor 1.6', c: 'Mecânica', p: 'R$ 2.400', i: 'cog' },
-    { n: 'Câmbio', c: 'Transmissão', p: 'R$ 1.850', i: 'sliders' },
-    { n: 'Pistão', c: 'Mecânica', p: 'R$ 180', i: 'piston' },
-    { n: 'Biela', c: 'Mecânica', p: 'R$ 140', i: 'link' },
-    { n: 'Roda de liga', c: 'Suspensão', p: 'R$ 320', i: 'wheel' },
-    { n: 'Alternador', c: 'Elétrica', p: 'R$ 420', i: 'zap' },
-    { n: 'Farol dianteiro', c: 'Iluminação', p: 'R$ 280', i: 'bulb' },
-    { n: 'Radiador', c: 'Arrefecimento', p: 'R$ 390', i: 'grille' }
+    { n: 'Motor 1.6',      c: 'Mecânica',      p: 'R$ 2.400', i: 'cog',     px: 17, py: 52 },
+    { n: 'Câmbio',         c: 'Transmissão',   p: 'R$ 1.850', i: 'sliders', px: 42, py: 68 },
+    { n: 'Pistão',         c: 'Mecânica',      p: 'R$ 180',   i: 'piston',  px: 22, py: 44 },
+    { n: 'Biela',          c: 'Mecânica',      p: 'R$ 140',   i: 'link',    px: 28, py: 56 },
+    { n: 'Roda de liga',   c: 'Suspensão',     p: 'R$ 320',   i: 'wheel',   px: 25, py: 89 },
+    { n: 'Alternador',     c: 'Elétrica',      p: 'R$ 420',   i: 'zap',     px: 19, py: 38 },
+    { n: 'Farol dianteiro',c: 'Iluminação',    p: 'R$ 280',   i: 'bulb',    px: 10, py: 68 },
+    { n: 'Radiador',       c: 'Arrefecimento', p: 'R$ 390',   i: 'grille',  px: 13, py: 58 }
   ];
   function svgWrap(d) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
   }
+
+  function addMarker(px, py, name) {
+    var markers = document.getElementById('partMarkers');
+    if (!markers) return;
+    var dot = document.createElement('div');
+    dot.className = 'part-dot';
+    dot.style.left = px + '%'; dot.style.top = py + '%';
+    var pin = document.createElement('div');
+    pin.className = 'part-pin';
+    pin.style.left = px + '%'; pin.style.top = py + '%';
+    pin.textContent = name;
+    markers.appendChild(dot);
+    markers.appendChild(pin);
+  }
+
+  function clearMarkers() {
+    var m = document.getElementById('partMarkers');
+    if (m) m.innerHTML = '';
+  }
+
   function showPart(idx) {
     if (!partName) return;
     var pt = PARTS[idx % PARTS.length];
@@ -114,6 +135,7 @@
     partPrice.textContent = pt.p;
     if (partIco) partIco.innerHTML = svgWrap(ICO[pt.i]);
     if (partNow) { partNow.classList.remove('flip'); void partNow.offsetWidth; partNow.classList.add('flip'); }
+    addMarker(pt.px, pt.py, pt.n);
   }
 
   function runScan() {
@@ -122,6 +144,7 @@
       nEl.textContent = TOTAL; barEl.style.width = '100%'; showPart(0);
       return;
     }
+    clearMarkers();
     var c = 0, pi = 0;
     showPart(0);
     var swapEvery = Math.floor(TOTAL / PARTS.length); // ~5
