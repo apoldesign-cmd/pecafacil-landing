@@ -95,31 +95,28 @@
   };
   // px/py = position on the car as % of stage width/height
   var PARTS = [
-    { n: 'Motor 1.6',      c: 'Mecânica',      p: 'R$ 2.400', i: 'cog',     px: 25, py: 55 },
-    { n: 'Câmbio',         c: 'Transmissão',   p: 'R$ 1.850', i: 'sliders', px: 38, py: 63 },
-    { n: 'Pistão',         c: 'Mecânica',      p: 'R$ 180',   i: 'piston',  px: 17, py: 52 },
-    { n: 'Biela',          c: 'Mecânica',      p: 'R$ 140',   i: 'link',    px: 23, py: 58 },
-    { n: 'Roda de liga',   c: 'Suspensão',     p: 'R$ 320',   i: 'wheel',   px: 27, py: 73 },
-    { n: 'Alternador',     c: 'Elétrica',      p: 'R$ 420',   i: 'zap',     px: 15, py: 50 },
-    { n: 'Farol dianteiro',c: 'Iluminação',    p: 'R$ 280',   i: 'bulb',    px: 13, py: 55 },
-    { n: 'Radiador',       c: 'Arrefecimento', p: 'R$ 390',   i: 'grille',  px: 11, py: 59 }
+    { n: 'Motor 1.6',      c: 'Mecânica',      p: 'R$ 2.400', i: 'cog',     px: 15, py: 28 },
+    { n: 'Câmbio',         c: 'Transmissão',   p: 'R$ 1.850', i: 'sliders', px: 39, py: 28 },
+    { n: 'Pistão',         c: 'Mecânica',      p: 'R$ 180',   i: 'piston',  px: 63, py: 28 },
+    { n: 'Biela',          c: 'Mecânica',      p: 'R$ 140',   i: 'link',    px: 85, py: 28 },
+    { n: 'Roda de liga',   c: 'Suspensão',     p: 'R$ 320',   i: 'wheel',   px: 15, py: 67 },
+    { n: 'Alternador',     c: 'Elétrica',      p: 'R$ 420',   i: 'zap',     px: 39, py: 67 },
+    { n: 'Farol dianteiro',c: 'Iluminação',    p: 'R$ 280',   i: 'bulb',    px: 63, py: 67 },
+    { n: 'Radiador',       c: 'Arrefecimento', p: 'R$ 390',   i: 'grille',  px: 85, py: 67 }
   ];
   function svgWrap(d) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
   }
 
-  function addMarker(px, py, name) {
+  function addMarker(px, py, name, icoKey, cat) {
     var markers = document.getElementById('partMarkers');
     if (!markers) return;
-    var dot = document.createElement('div');
-    dot.className = 'part-dot';
-    dot.style.left = px + '%'; dot.style.top = py + '%';
-    var pin = document.createElement('div');
-    pin.className = 'part-pin';
-    pin.style.left = px + '%'; pin.style.top = py + '%';
-    pin.textContent = name;
-    markers.appendChild(dot);
-    markers.appendChild(pin);
+    var card = document.createElement('div');
+    card.className = 'pmc';
+    card.style.left = px + '%'; card.style.top = py + '%';
+    card.innerHTML = '<div class="pmc-i">' + svgWrap(ICO[icoKey] || ICO.cog) + '</div>' +
+      '<div><span class="pmc-n">' + name + '</span><span class="pmc-c">' + cat + '</span></div>';
+    markers.appendChild(card);
   }
 
   function clearMarkers() {
@@ -135,7 +132,7 @@
     partPrice.textContent = pt.p;
     if (partIco) partIco.innerHTML = svgWrap(ICO[pt.i]);
     if (partNow) { partNow.classList.remove('flip'); void partNow.offsetWidth; partNow.classList.add('flip'); }
-    addMarker(pt.px, pt.py, pt.n);
+    addMarker(pt.px, pt.py, pt.n, pt.i, pt.c);
   }
 
   function runScan() {
