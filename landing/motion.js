@@ -168,11 +168,22 @@
     sio.observe(scanner);
   }
 
-  /* ---- single-open FAQ ---- */
-  var faqs = document.querySelectorAll('.faq details');
-  faqs.forEach(function (d) {
-    d.addEventListener('toggle', function () {
-      if (d.open) faqs.forEach(function (o) { if (o !== d) o.open = false; });
+  /* ---- single-open animated FAQ accordion ---- */
+  var faqItems = document.querySelectorAll('.faq .faq-item');
+  faqItems.forEach(function (item) {
+    var btn = item.querySelector('.faq-q');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var willOpen = !item.classList.contains('open');
+      faqItems.forEach(function (o) {
+        o.classList.remove('open');
+        var b = o.querySelector('.faq-q');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (willOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
   });
 
